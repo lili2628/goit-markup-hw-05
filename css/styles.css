@@ -742,6 +742,8 @@ box-shadow 250ms var(--function-timing);
     height: 100%;
 
     background-color: rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    transition: opacity 250ms var(--function-timing);
 }
 
 .backdrop.is-hidden{
@@ -750,11 +752,19 @@ box-shadow 250ms var(--function-timing);
     pointer-events: none;
 }
 
+.backdrop.is-hidden .modal-window{
+    transform: translate(-50%, -50%) scale(0.25);
+    opacity: 0;
+} 
+
 .modal-window{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 250ms var(--function-timing), 
+    opacity 250ms var(--function-timing);
 
     min-width: 528px;
     min-height: 580px;
