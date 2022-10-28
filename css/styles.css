@@ -569,13 +569,11 @@ box-shadow 250ms var(--function-timing);
 
     transform: translateY(100%);
     transition: transform 250ms var(--function-timing);
-    overflow: hidden;
 
     width: 100%;
     height: 100%;
 
     background-color: rgba(33, 150, 243, 0.9);
-    opacity: 0;
 }
 
 .example-text {
@@ -585,7 +583,6 @@ box-shadow 250ms var(--function-timing);
     transform: translate(-50%, -50%);
     display: block;
     width: 322px;
-    opacity: 1;
 
     margin: 0;
 
@@ -604,7 +601,6 @@ box-shadow 250ms var(--function-timing);
 
 .example-link:hover .example-overlay,
 .example-link:focus .example-overlay {
-    opacity: 1;
     transform: translateY(0);
 }
 
@@ -743,7 +739,9 @@ box-shadow 250ms var(--function-timing);
 
     background-color: rgba(0, 0, 0, 0.2);
     opacity: 1;
-    transition: opacity 250ms var(--function-timing);
+    visibility: visible;
+    transition: opacity 250ms var(--function-timing), 
+    visibility 250ms var(--function-timing);
 }
 
 .backdrop.is-hidden{
@@ -753,8 +751,9 @@ box-shadow 250ms var(--function-timing);
 }
 
 .backdrop.is-hidden .modal-window{
-    transform: translate(-50%, -50%) scale(0.25);
+    transform: translate(-50%, -50%) scale(0.15);
     opacity: 0;
+    visibility: 0;
 } 
 
 .modal-window{
@@ -764,7 +763,8 @@ box-shadow 250ms var(--function-timing);
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
     transition: transform 250ms var(--function-timing), 
-    opacity 250ms var(--function-timing);
+    opacity 250ms var(--function-timing),
+    visibility 250ms var(--function-timing);
 
     min-width: 528px;
     min-height: 580px;
